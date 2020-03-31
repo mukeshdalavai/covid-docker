@@ -7,7 +7,7 @@ services:
     network_mode: "host"
     hostname: localhost
     ports:
-      - 80:4200
+      - 80:80
 #
 #  eureka-server:
 #    image: eureka-server:1.0
