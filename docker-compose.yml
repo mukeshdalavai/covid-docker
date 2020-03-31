@@ -1,0 +1,62 @@
+version: '2.2'
+
+services:
+  ui:
+    image: dmk0062/covid-ui:1.0
+    restart: always
+    network_mode: "host"
+    hostname: localhost
+    ports:
+      - 80:4200
+#
+#  eureka-server:
+#    image: eureka-server:1.0
+#    build: eureka-server/
+#    restart: always
+#    network_mode: host
+#    hostname: localhost
+#    ports:
+#      - 8761:8761
+#
+#  config-server:
+#    image: config-server:1.0
+#    build: config-server/
+#    restart: always
+#    network_mode: host
+#    hostname: localhost
+#    ports:
+#      - 8888:8888
+#
+#  zuul-api:
+#    image: zuul-api:1.0
+#    build: zuul-api/
+#    depends_on:
+#      - config-server
+#      - eureka-server
+#    restart: always
+#    network_mode: host
+#    hostname: localhost
+#    ports:
+#      - 8000:8000
+
+  data-service:
+    image: dmk0062/covid-data-service:1.0
+    depends_on:
+      - mongo
+    restart: always
+    network_mode: host
+    hostname: localhost
+    ports:
+      - 8080:8080
+
+  mongo:
+    image: mongo:4.0
+    restart: always
+    network_mode : host
+    hostname : localhost
+    ports:
+      - 27017:27017
+#   volumes:
+#     - ../data/mongo:/data/db
+
+
