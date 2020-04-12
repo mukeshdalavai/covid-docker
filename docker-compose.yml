@@ -56,7 +56,7 @@ services:
     hostname : localhost
     ports:
       - 27017:27017
-#   volumes:
-#     - ../data/mongo:/data/db
+    volumes:
+      - ../data/mongo:/data/db
 
 
