@@ -2,7 +2,7 @@ version: '2.2'
 
 services:
   ui:
-    image: dmk0062/covid-ui:1.0
+    image: dmk0062/covid-ui:2.0
     restart: always
     network_mode: "host"
     hostname: localhost
